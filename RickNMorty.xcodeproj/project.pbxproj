@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F5C832D2C2EDB6200F5B12D /* ModalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5C832C2C2EDB6200F5B12D /* ModalDelegate.swift */; };
 		2F8304F42BE242C500014B2B /* CardNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8304F32BE242C500014B2B /* CardNavigationDelegate.swift */; };
 		2F8304F72BE9D2CE00014B2B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8304F62BE9D2CE00014B2B /* CardView.swift */; };
 		2F8304FB2BEE4A3800014B2B /* NavigationCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8304FA2BEE4A3800014B2B /* NavigationCardsView.swift */; };
@@ -27,8 +28,16 @@
 		2F8684632BDBDF8F0088D597 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8684622BDBDF8F0088D597 /* HomeController.swift */; };
 		2F8684652BDBE7730088D597 /* CharactersContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8684642BDBE7730088D597 /* CharactersContoller.swift */; };
 		2F8684672BDF570B0088D597 /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8684662BDF570B0088D597 /* CardController.swift */; };
+		2F8908412C326AC700E37D0E /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8908402C326AC700E37D0E /* PillButton.swift */; };
+		2F8908432C3270A000E37D0E /* FiltersConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8908422C3270A000E37D0E /* FiltersConstants.swift */; };
+		2F8908452C32760500E37D0E /* FiltersParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8908442C32760500E37D0E /* FiltersParametersView.swift */; };
+		2F8908472C33CB3000E37D0E /* PillViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8908462C33CB3000E37D0E /* PillViewConfiguration.swift */; };
 		2F9179622C0EC39100FA0385 /* ToggleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9179612C0EC39100FA0385 /* ToggleDelegate.swift */; };
 		2F9179642C0EC5D100FA0385 /* CharactersConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9179632C0EC5D100FA0385 /* CharactersConstants.swift */; };
+		2F9179672C16BBD500FA0385 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9179662C16BBD500FA0385 /* FiltersViewController.swift */; };
+		2F9179692C16BD5E00FA0385 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9179682C16BD5E00FA0385 /* FiltersView.swift */; };
+		2F91796C2C195BF000FA0385 /* CardsLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F91796B2C195BF000FA0385 /* CardsLoaderView.swift */; };
+		2F91796E2C195C3800FA0385 /* CardsLoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F91796D2C195C3800FA0385 /* CardsLoaderViewController.swift */; };
 		2FB4C6EC2C057FD900397653 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4C6EB2C057FD900397653 /* FavoritesService.swift */; };
 		2FB4C6F02C06E80300397653 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4C6EF2C06E80300397653 /* CharacterViewModel.swift */; };
 		2FB4C6F22C06EBF000397653 /* FavoritesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4C6F12C06EBF000397653 /* FavoritesConstants.swift */; };
@@ -43,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F5C832C2C2EDB6200F5B12D /* ModalDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDelegate.swift; sourceTree = "<group>"; };
 		2F8304F32BE242C500014B2B /* CardNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNavigationDelegate.swift; sourceTree = "<group>"; };
 		2F8304F62BE9D2CE00014B2B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		2F8304FA2BEE4A3800014B2B /* NavigationCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCardsView.swift; sourceTree = "<group>"; };
@@ -65,8 +75,16 @@
 		2F8684622BDBDF8F0088D597 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		2F8684642BDBE7730088D597 /* CharactersContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersContoller.swift; sourceTree = "<group>"; };
 		2F8684662BDF570B0088D597 /* CardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
+		2F8908402C326AC700E37D0E /* PillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
+		2F8908422C3270A000E37D0E /* FiltersConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersConstants.swift; sourceTree = "<group>"; };
+		2F8908442C32760500E37D0E /* FiltersParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersParametersView.swift; sourceTree = "<group>"; };
+		2F8908462C33CB3000E37D0E /* PillViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillViewConfiguration.swift; sourceTree = "<group>"; };
 		2F9179612C0EC39100FA0385 /* ToggleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleDelegate.swift; sourceTree = "<group>"; };
 		2F9179632C0EC5D100FA0385 /* CharactersConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersConstants.swift; sourceTree = "<group>"; };
+		2F9179662C16BBD500FA0385 /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		2F9179682C16BD5E00FA0385 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
+		2F91796B2C195BF000FA0385 /* CardsLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLoaderView.swift; sourceTree = "<group>"; };
+		2F91796D2C195C3800FA0385 /* CardsLoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLoaderViewController.swift; sourceTree = "<group>"; };
 		2FB4C6EB2C057FD900397653 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
 		2FB4C6EF2C06E80300397653 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		2FB4C6F12C06EBF000397653 /* FavoritesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConstants.swift; sourceTree = "<group>"; };
@@ -91,6 +109,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F5C832B2C2EDB1E00F5B12D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2F5C832C2C2EDB6200F5B12D /* ModalDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2F5C832E2C2F18F800F5B12D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				2F9179632C0EC5D100FA0385 /* CharactersConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		2F8305072BF1CA4D00014B2B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +169,26 @@
 			path = RickNMorty;
 			sourceTree = "<group>";
 		};
+		2F9179652C16BBB600FA0385 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				2F9179662C16BBD500FA0385 /* FiltersViewController.swift */,
+				2F9179682C16BD5E00FA0385 /* FiltersView.swift */,
+				2F8908422C3270A000E37D0E /* FiltersConstants.swift */,
+				2F8908442C32760500E37D0E /* FiltersParametersView.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		2F91796A2C195BD400FA0385 /* CardsLoader */ = {
+			isa = PBXGroup;
+			children = (
+				2F91796B2C195BF000FA0385 /* CardsLoaderView.swift */,
+				2F91796D2C195C3800FA0385 /* CardsLoaderViewController.swift */,
+			);
+			path = CardsLoader;
+			sourceTree = "<group>";
+		};
 		2FB4C6E92C057FB400397653 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,12 +213,12 @@
 		2FD3019A2BFBA8B700827E50 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				2F9179652C16BBB600FA0385 /* Filters */,
 				2F8305102BF5D47C00014B2B /* CharactersLoader.swift */,
 				2F8304FD2BEE948D00014B2B /* CharactersViewModel.swift */,
 				2F8684642BDBE7730088D597 /* CharactersContoller.swift */,
 				2F83050A2BF4783100014B2B /* CharactersCardCollectionView.swift */,
 				2F83050C2BF487C500014B2B /* CharactersCollectionViewCell.swift */,
-				2F9179632C0EC5D100FA0385 /* CharactersConstants.swift */,
 				2FD301972BFBA88C00827E50 /* Character */,
 			);
 			path = Characters;
@@ -173,6 +227,9 @@
 		2FD3019C2BFBA92400827E50 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2F5C832E2C2F18F800F5B12D /* Constants */,
+				2F5C832B2C2EDB1E00F5B12D /* Protocols */,
+				2F91796A2C195BD400FA0385 /* CardsLoader */,
 				2F8305072BF1CA4D00014B2B /* Utils */,
 				2FD3019E2BFBA94200827E50 /* Controller */,
 				2FD3019D2BFBA92C00827E50 /* View */,
@@ -188,6 +245,7 @@
 				2F8304F62BE9D2CE00014B2B /* CardView.swift */,
 				2FE17B6D2C09B7EB001EF0EA /* Toggle.swift */,
 				2FE17B6F2C09C176001EF0EA /* ThumbView.swift */,
+				2F8908462C33CB3000E37D0E /* PillViewConfiguration.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				2F8684662BDF570B0088D597 /* CardController.swift */,
+				2F8908402C326AC700E37D0E /* PillButton.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -314,10 +373,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F8908452C32760500E37D0E /* FiltersParametersView.swift in Sources */,
 				2F8304FE2BEE948D00014B2B /* CharactersViewModel.swift in Sources */,
 				2FD301A22BFC667100827E50 /* TextLineLabelEnum.swift in Sources */,
 				2F8304FB2BEE4A3800014B2B /* NavigationCardsView.swift in Sources */,
 				2F8304F72BE9D2CE00014B2B /* CardView.swift in Sources */,
+				2F9179692C16BD5E00FA0385 /* FiltersView.swift in Sources */,
 				2F8305112BF5D47C00014B2B /* CharactersLoader.swift in Sources */,
 				2F8684632BDBDF8F0088D597 /* HomeController.swift in Sources */,
 				2F83050D2BF487C500014B2B /* CharactersCollectionViewCell.swift in Sources */,
@@ -328,20 +389,27 @@
 				2FE17B722C0D9FB5001EF0EA /* ColorExtension.swift in Sources */,
 				2F8684672BDF570B0088D597 /* CardController.swift in Sources */,
 				2F8305042BEEA16C00014B2B /* EpisodesViewController.swift in Sources */,
+				2F91796C2C195BF000FA0385 /* CardsLoaderView.swift in Sources */,
+				2F9179672C16BBD500FA0385 /* FiltersViewController.swift in Sources */,
 				2F9179622C0EC39100FA0385 /* ToggleDelegate.swift in Sources */,
 				2F8305062BEEA23000014B2B /* CharacterCardView.swift in Sources */,
 				2F8684652BDBE7730088D597 /* CharactersContoller.swift in Sources */,
 				2F83050B2BF4783100014B2B /* CharactersCardCollectionView.swift in Sources */,
+				2F8908432C3270A000E37D0E /* FiltersConstants.swift in Sources */,
 				2F8304F42BE242C500014B2B /* CardNavigationDelegate.swift in Sources */,
 				2F9179642C0EC5D100FA0385 /* CharactersConstants.swift in Sources */,
 				2F8305002BEE955100014B2B /* Character.swift in Sources */,
 				2FB4C6F02C06E80300397653 /* CharacterViewModel.swift in Sources */,
+				2F8908412C326AC700E37D0E /* PillButton.swift in Sources */,
 				2FE17B6E2C09B7EB001EF0EA /* Toggle.swift in Sources */,
 				2F8684492BDBDD300088D597 /* AppDelegate.swift in Sources */,
 				2FFB4DF62BF7327200D6913E /* TextLineViewStack.swift in Sources */,
 				2FD301962BFB12D800827E50 /* CharacterViewController.swift in Sources */,
 				2F8305092BF1CA6700014B2B /* UIImageViewLoadImage.swift in Sources */,
 				2F86844B2BDBDD300088D597 /* SceneDelegate.swift in Sources */,
+				2F8908472C33CB3000E37D0E /* PillViewConfiguration.swift in Sources */,
+				2F91796E2C195C3800FA0385 /* CardsLoaderViewController.swift in Sources */,
+				2F5C832D2C2EDB6200F5B12D /* ModalDelegate.swift in Sources */,
 				2FB4C6EC2C057FD900397653 /* FavoritesService.swift in Sources */,
 				2F8305132BF5D63200014B2B /* Constants.swift in Sources */,
 				2FD301AB2BFF07A400827E50 /* FavoriteTouchDelegate.swift in Sources */,

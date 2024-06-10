@@ -13,11 +13,12 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     private let imageView: UIImageView = {
         let iv = UIImageView()
         iv.layer.masksToBounds = true
-        iv.layer.maskedCorners = [ .layerMaxXMinYCorner, .layerMinXMinYCorner]
+        iv.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         iv.layer.cornerRadius = 5
         iv.image = UIImage(systemName: "questionmark")
         return iv
     }()
+
     private let nameTextLine = TextLineViewStack()
     private let genderTextLine = TextLineViewStack()
     private let statusTextLine = TextLineViewStack()
@@ -28,6 +29,7 @@ class CharactersCollectionViewCell: UICollectionViewCell {
         setupUI()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -41,15 +43,19 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        self.backgroundColor = .white
-        self.layer.cornerRadius = 5
-        self.addSubview(imageView)
-        self.addSubview(nameTextLine)
-        self.addSubview(genderTextLine)
-        self.addSubview(statusTextLine)
-        self.addSubview(speciesTextLine)
+        backgroundColor = .white
+        layer.cornerRadius = 5
+        addSubview(imageView)
+        addSubview(nameTextLine)
+        addSubview(genderTextLine)
+        addSubview(statusTextLine)
+        addSubview(speciesTextLine)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 2
+
         NSLayoutConstraint.activate([
             imageView.heightAnchor.constraint(equalToConstant: 150),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -76,6 +82,6 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.imageView.image = nil
+        imageView.image = nil
     }
 }

@@ -14,7 +14,13 @@ class CharactersViewModel {
     private let favoritesService = FavoritesService.shared
 
     private let charactersLoader = CharactersLoader()
-    private(set) var characters: [Character] = [] {
+    private var _characters: [Character] = [] {
+        didSet {
+            charactersToDisplay = _characters
+        }
+    }
+
+    private(set) var charactersToDisplay: [Character] = [] {
         didSet {
             onCharactersUpdated?()
         }
@@ -28,7 +34,7 @@ class CharactersViewModel {
         charactersLoader.fetchCharacters { [weak self] result in
             switch result {
                 case .success(let characters):
-                    self?.characters = characters
+                    self?._characters = characters
                 case .failure(let error):
                     print("Ojojoj, \(String(describing: error))")
                     self?.onCharactersError?(error)
@@ -47,8 +53,18 @@ class CharactersViewModel {
         }
     }
 
+    func searchCharacters(by query: String) {
+        if query.isEmpty {
+            charactersToDisplay = _characters
+        } else {
+            charactersToDisplay = _characters.filter { character in
+                character.name.lowercased().contains(query.lowercased())
+            }
+        }
+    }
+
     private func filterCharactersByFavorites() {
-        characters = characters.filter { character in
+        charactersToDisplay = charactersToDisplay.filter { character in
             favoritesService.isFavorite(character.id)
         }
     }

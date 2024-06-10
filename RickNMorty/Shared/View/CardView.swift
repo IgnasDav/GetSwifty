@@ -15,7 +15,7 @@ class CardView: UIView {
         iv.isUserInteractionEnabled = true
         return iv
     }()
-    
+
     let label: UILabel = {
         let label = UILabel()
         label.text = "Error"
@@ -24,25 +24,26 @@ class CardView: UIView {
         label.backgroundColor = .clear
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         createView()
     }
-    
+
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-//MARK: -Setup view
+// MARK: - Setup view
 
 extension CardView {
     func createView() {
         layer.cornerRadius = 15
         addToSubview()
         translateComponentAutoresizing()
-        
+
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 220),
             imageView.heightAnchor.constraint(equalTo: heightAnchor),
@@ -57,7 +58,7 @@ extension CardView {
     }
 }
 
-//MARK: -Set translateAutoResizingMaskIntoConstraints
+// MARK: - Set translateAutoResizingMaskIntoConstraints
 
 extension CardView {
     func translateComponentAutoresizing() {
@@ -67,7 +68,7 @@ extension CardView {
     }
 }
 
-//MARK: -Add components to subview
+// MARK: - Add components to subview
 
 extension CardView {
     func addToSubview() {

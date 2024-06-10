@@ -9,16 +9,14 @@ import UIKit
 
 class EpisodesViewController: UIViewController {
     private let imageView: UIImageView = .init()
+    private let spinner = CardsLoaderViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        view.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .red
+        addChild(spinner)
+        spinner.view.frame = view.frame
+        view.addSubview(spinner.view)
+        spinner.didMove(toParent: self)
     }
 }

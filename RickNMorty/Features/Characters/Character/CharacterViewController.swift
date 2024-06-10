@@ -12,7 +12,7 @@ class CharacterViewController: UIViewController {
     private let characterView = CharacterView()
     private let viewModel = CharacterViewModel()
 
-    var character: Character? {
+    private var character: Character? {
         didSet {
             viewModel.setCharacter(character)
             // This should be refactored
@@ -24,6 +24,10 @@ class CharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+
+    func setCharacter(_ character: Character) {
+        self.character = character
     }
 }
 

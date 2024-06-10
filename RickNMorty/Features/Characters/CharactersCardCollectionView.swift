@@ -14,7 +14,6 @@ class CharactersCollectionView: UICollectionView {
         return layout
     }()
 
-
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: flowLayout)
         setupUI()
@@ -27,7 +26,7 @@ class CharactersCollectionView: UICollectionView {
 
     private func setupUI() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .gray
+        backgroundColor = .white
         register(CharactersCollectionViewCell.self, forCellWithReuseIdentifier: CharactersCollectionViewCell.identifier)
     }
 }

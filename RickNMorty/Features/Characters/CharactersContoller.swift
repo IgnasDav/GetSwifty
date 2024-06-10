@@ -5,28 +5,32 @@
 //  Created by Ignas Davulis on 26/04/2024.
 //
 
+import Combine
 import UIKit
 
 class CharactersContoller: UIViewController {
-    let viewModel = CharactersViewModel()
+    private let viewModel = CharactersViewModel()
     private let collectionView = CharactersCollectionView()
-    private var isFilterHidden = true {
-        didSet {
-            toggleView.isHidden = isFilterHidden
-        }
-    }
 
-    private let toggleView: AppToggle = .init()
+    private let searchBarController: UISearchController = {
+        let sc = UISearchController(searchResultsController: nil)
+        sc.searchBar.placeholder = "Search characters"
+        return sc
+    }()
+
+    private var cancellables = [AnyCancellable]()
+
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-
         collectionView.dataSource = self
         collectionView.delegate = self
-        toggleView.delegate = self
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filters", style: .plain, target: self, action: #selector(toggleFilterView))
+        searchBarController.delegate = self
+        searchBarController.searchResultsUpdater = self
 
         viewModel.onCharactersUpdated = { [weak self] in
             DispatchQueue.main.async {
@@ -45,29 +49,29 @@ class CharactersContoller: UIViewController {
         }
     }
 
-    @objc private func toggleFilterView() {
-        isFilterHidden.toggle()
+    override func viewDidAppear(_ animated: Bool) {
+        navigationItem.hidesSearchBarWhenScrolling = true
+    }
+
+    @objc private func onDisplayFilters() {
+        present(FiltersViewController(), animated: true, completion: nil)
     }
 }
 
 // MARK: - Create UI
 
 extension CharactersContoller {
-    func setupUI() {
+    private func setupUI() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filters", style: .plain, target: self, action: #selector(onDisplayFilters))
+        navigationItem.searchController = searchBarController
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
-        view.addSubview(toggleView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        toggleView.isHidden = true
-
         NSLayoutConstraint.activate([
-            toggleView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1.0),
-            toggleView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            toggleView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20),
-            collectionView.topAnchor.constraint(equalTo: toggleView.bottomAnchor, constant: 20),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
 }
@@ -76,7 +80,7 @@ extension CharactersContoller {
 
 extension CharactersContoller: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.characters.count
+        return viewModel.charactersToDisplay.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -84,7 +88,7 @@ extension CharactersContoller: UICollectionViewDelegate, UICollectionViewDataSou
             fatalError("Failed to dequeue CharactersCollectionViewCell in Characters controller")
         }
 
-        let character = viewModel.characters[indexPath.row]
+        let character = viewModel.charactersToDisplay[indexPath.row]
 
         if let url = URL(string: character.image) {
             cell.configure(with: url, name: character.name, gender: character.gender, status: character.status, species: character.species)
@@ -95,7 +99,7 @@ extension CharactersContoller: UICollectionViewDelegate, UICollectionViewDataSou
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = CharacterViewController()
-        vc.character = viewModel.characters[indexPath.row]
+        vc.setCharacter(viewModel.charactersToDisplay[indexPath.row])
         present(vc, animated: true)
     }
 }
@@ -121,10 +125,20 @@ extension CharactersContoller: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - Toggle delegate
+// MARK: - UISearchController delegate && UISearchResult updating
 
-extension CharactersContoller: ToggleDelegate {
-    func didToggleChange(with text: String) {
-        viewModel.filterCharactersByFavoritesToggle(type: text)
+extension CharactersContoller: UISearchControllerDelegate, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard searchController.isActive else { return }
+        if let query = searchController.searchBar.text {
+            NotificationCenter.default.publisher(
+                for: UITextField.textDidChangeNotification,
+                object: searchController.searchBar.searchTextField
+            )
+            .map { ($0.object as! UITextField).text ?? "" }
+            .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
+            .sink { self.viewModel.searchCharacters(by: $0) }
+            .store(in: &cancellables)
+        }
     }
 }
