@@ -8,15 +8,13 @@
 import UIKit
 
 class CharactersContoller: UIViewController {
-    let viewModel = CharactersViewModel()
+    private let viewModel = CharactersViewModel()
     private let collectionView = CharactersCollectionView()
-    private var isFilterHidden = true {
-        didSet {
-            toggleView.isHidden = isFilterHidden
-        }
-    }
-
-    private let toggleView: AppToggle = .init()
+    private let searchField: UISearchTextField = {
+        let tf = UISearchTextField()
+        tf.placeholder = "Search for character"
+        return tf
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +22,9 @@ class CharactersContoller: UIViewController {
 
         collectionView.dataSource = self
         collectionView.delegate = self
-        toggleView.delegate = self
+        searchField.delegate = self
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filters", style: .plain, target: self, action: #selector(toggleFilterView))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filters", style: .plain, target: self, action: #selector(onDisplayFilters))
 
         viewModel.onCharactersUpdated = { [weak self] in
             DispatchQueue.main.async {
@@ -45,29 +43,28 @@ class CharactersContoller: UIViewController {
         }
     }
 
-    @objc private func toggleFilterView() {
-        isFilterHidden.toggle()
+    @objc private func onDisplayFilters() {
+        present(FiltersViewController(), animated: true, completion: nil)
     }
 }
 
 // MARK: - Create UI
 
 extension CharactersContoller {
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
-        view.addSubview(toggleView)
+        view.addSubview(searchField)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        toggleView.isHidden = true
-
+        searchField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            toggleView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1.0),
-            toggleView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            toggleView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20),
-            collectionView.topAnchor.constraint(equalTo: toggleView.bottomAnchor, constant: 20),
+            searchField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            searchField.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20),
+            searchField.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1.0),
+            collectionView.topAnchor.constraint(equalTo: searchField.bottomAnchor, constant: 20),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
 }
@@ -126,5 +123,13 @@ extension CharactersContoller: UICollectionViewDelegateFlowLayout {
 extension CharactersContoller: ToggleDelegate {
     func didToggleChange(with text: String) {
         viewModel.filterCharactersByFavoritesToggle(type: text)
+    }
+}
+
+// MARK: - Text field delegate
+
+extension CharactersContoller: UISearchTextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("hej")
     }
 }

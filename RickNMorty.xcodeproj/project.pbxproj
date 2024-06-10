@@ -29,6 +29,8 @@
 		2F8684672BDF570B0088D597 /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8684662BDF570B0088D597 /* CardController.swift */; };
 		2F9179622C0EC39100FA0385 /* ToggleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9179612C0EC39100FA0385 /* ToggleDelegate.swift */; };
 		2F9179642C0EC5D100FA0385 /* CharactersConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9179632C0EC5D100FA0385 /* CharactersConstants.swift */; };
+		2F9179672C16BBD500FA0385 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9179662C16BBD500FA0385 /* FiltersViewController.swift */; };
+		2F9179692C16BD5E00FA0385 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9179682C16BD5E00FA0385 /* FiltersView.swift */; };
 		2FB4C6EC2C057FD900397653 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4C6EB2C057FD900397653 /* FavoritesService.swift */; };
 		2FB4C6F02C06E80300397653 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4C6EF2C06E80300397653 /* CharacterViewModel.swift */; };
 		2FB4C6F22C06EBF000397653 /* FavoritesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4C6F12C06EBF000397653 /* FavoritesConstants.swift */; };
@@ -67,6 +69,8 @@
 		2F8684662BDF570B0088D597 /* CardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
 		2F9179612C0EC39100FA0385 /* ToggleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleDelegate.swift; sourceTree = "<group>"; };
 		2F9179632C0EC5D100FA0385 /* CharactersConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersConstants.swift; sourceTree = "<group>"; };
+		2F9179662C16BBD500FA0385 /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		2F9179682C16BD5E00FA0385 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		2FB4C6EB2C057FD900397653 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
 		2FB4C6EF2C06E80300397653 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		2FB4C6F12C06EBF000397653 /* FavoritesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConstants.swift; sourceTree = "<group>"; };
@@ -135,6 +139,15 @@
 			path = RickNMorty;
 			sourceTree = "<group>";
 		};
+		2F9179652C16BBB600FA0385 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				2F9179662C16BBD500FA0385 /* FiltersViewController.swift */,
+				2F9179682C16BD5E00FA0385 /* FiltersView.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
 		2FB4C6E92C057FB400397653 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +172,7 @@
 		2FD3019A2BFBA8B700827E50 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				2F9179652C16BBB600FA0385 /* Filters */,
 				2F8305102BF5D47C00014B2B /* CharactersLoader.swift */,
 				2F8304FD2BEE948D00014B2B /* CharactersViewModel.swift */,
 				2F8684642BDBE7730088D597 /* CharactersContoller.swift */,
@@ -318,6 +332,7 @@
 				2FD301A22BFC667100827E50 /* TextLineLabelEnum.swift in Sources */,
 				2F8304FB2BEE4A3800014B2B /* NavigationCardsView.swift in Sources */,
 				2F8304F72BE9D2CE00014B2B /* CardView.swift in Sources */,
+				2F9179692C16BD5E00FA0385 /* FiltersView.swift in Sources */,
 				2F8305112BF5D47C00014B2B /* CharactersLoader.swift in Sources */,
 				2F8684632BDBDF8F0088D597 /* HomeController.swift in Sources */,
 				2F83050D2BF487C500014B2B /* CharactersCollectionViewCell.swift in Sources */,
@@ -328,6 +343,7 @@
 				2FE17B722C0D9FB5001EF0EA /* ColorExtension.swift in Sources */,
 				2F8684672BDF570B0088D597 /* CardController.swift in Sources */,
 				2F8305042BEEA16C00014B2B /* EpisodesViewController.swift in Sources */,
+				2F9179672C16BBD500FA0385 /* FiltersViewController.swift in Sources */,
 				2F9179622C0EC39100FA0385 /* ToggleDelegate.swift in Sources */,
 				2F8305062BEEA23000014B2B /* CharacterCardView.swift in Sources */,
 				2F8684652BDBE7730088D597 /* CharactersContoller.swift in Sources */,
